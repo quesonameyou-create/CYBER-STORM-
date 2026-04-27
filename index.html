@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER-STORM OMEGA | PORTAL OFICIAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #0ff;
+            --magenta: #f0f;
+            --yellow: #ffeb3b;
+            --bg: #020202;
+            --panel: rgba(15, 15, 15, 0.95);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg);
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #fff;
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- MENÚ HAMBURGUESA (SOLO 3 RAYAS) --- */
+        .menu-trigger {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            z-index: 2000;
+            cursor: pointer;
+            padding: 10px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--cyan);
+            border-radius: 5px;
+        }
+        .hamburger-lines { display: flex; flex-direction: column; gap: 6px; }
+        .hamburger-lines div { width: 30px; height: 3px; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); transition: 0.3s; }
+
+        /* --- OVERLAY DEL MENÚ --- */
+        .side-nav {
+            position: fixed;
+            top: 0; right: -100%; width: 350px; height: 100%;
+            background: var(--panel);
+            border-left: 3px solid var(--magenta);
+            z-index: 1500;
+            padding: 100px 40px;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -20px 0 50px rgba(0,0,0,0.9);
+        }
+        .side-nav.active { right: 0; }
+        .side-nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-family: 'Orbitron';
+            transition: 0.3s;
+        }
+        .side-nav a:hover { color: var(--magenta); padding-left: 10px; text-shadow: 0 0 10px var(--magenta); }
+        .coming-soon { font-size: 0.7rem; color: var(--yellow); border: 1px solid var(--yellow); padding: 2px 5px; margin-left: 10px; vertical-align: middle; }
+
+        /* --- HEADER --- */
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #1a0033 0%, var(--bg) 90%);
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 12vw, 8rem);
+            color: var(--magenta);
+            text-shadow: 0 0 30px var(--magenta);
+            margin-bottom: 0;
+        }
+
+        /* --- ZONA DE JUEGO --- */
+        .game-terminal {
+            max-width: 1100px;
+            margin: -50px auto 100px;
+            position: relative;
+            background: #000;
+            border: 4px solid var(--cyan);
+            box-shadow: 0 0 60px rgba(0, 255, 255, 0.3);
+            height: 700px;
+            border-radius: 10px;
+        }
+        #game-frame { width: 100%; height: 100%; border: none; display: none; }
+        
+        .overlay-screen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 100;
+        }
+
+        .btn-main {
+            background: transparent;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            padding: 20px 50px;
+            font-family: 'Orbitron';
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--cyan);
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: var(--cyan); color: #000; }
+        
+        /* BOTÓN PAUSAR/SALIR DENTRO DEL JUEGO */
+        .game-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 150;
+        }
+
+        /* --- ENCICLOPEDIA / LORE --- */
+        .section { max-width: 1200px; margin: 100px auto; padding: 0 20px; }
+        .section-title { font-size: 2.5rem; color: var(--yellow); margin-bottom: 50px; border-bottom: 2px solid var(--yellow); padding-bottom: 10px; }
+        
+        .encyclopedia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .data-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .data-card:hover { border-color: var(--magenta); transform: scale(1.02); }
+        .data-card h3 { color: var(--cyan); margin-bottom: 15px; }
+
+        .lore-text { font-size: 1.2rem; color: #aaa; max-width: 800px; line-height: 1.8; margin-bottom: 40px; }
+
+        /* --- CRÉDITOS --- */
+        .credits-footer {
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid var(--magenta);
+            background: #050505;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-trigger" onclick="toggleMenu()">
+        <div class="hamburger-lines">
+            <div></div><div></div><div></div>
+        </div>
+    </div>
+
+    <nav class="side-nav" id="sideNav">
+        <a href="#hero" onclick="toggleMenu()">INICIO</a>
+        <a href="#lore" onclick="toggleMenu()">LORE DEL JUEGO</a>
+        <a href="#encyclopedia" onclick="toggleMenu()">ENCICLOPEDIA</a>
+        <a href="#credits" onclick="toggleMenu()">CREADOR</a>
+        <a href="#">MULTIJUGADOR <span class="coming-soon">Muy pronto</span></a>
+        <a href="#">MODO ROGUELITE <span class="coming-soon">Muy pronto</span></a>
+    </nav>
+
+    <audio id="page-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="hero" id="hero">
+        <h1>CYBER-STORM</h1>
+        <p style="color: var(--cyan); letter-spacing: 10px;">TERMINAL DE ACCESO v1.13.0</p>
+    </header>
+
+    <div class="game-terminal">
+        <div class="overlay-screen" id="start-screen">
+            <h2 style="color: var(--yellow); margin-bottom: 30px;">SISTEMA LISTO</h2>
+            <button class="btn-main" onclick="playGame()">INICIAR CONEXIÓN</button>
+        </div>
+
+        <div class="overlay-screen" id="pause-screen" style="display: none;">
+            <h2 style="color: var(--magenta); margin-bottom: 30px;">SISTEMA EN PAUSA</h2>
+            <button class="btn-main" onclick="resumeGame()">REANUDAR</button>
+            <button class="btn-main" style="border-color: var(--magenta); color: var(--magenta);" onclick="exitGame()">SALIR DEL JUEGO</button>
+        </div>
+
+        <div class="game-controls" id="control-btn">
+            <button onclick="pauseGame()" style="background: rgba(0,0,0,0.6); color: var(--cyan); border: 1px solid var(--cyan); padding: 5px 15px; cursor: pointer; font-family: 'Orbitron';">PAUSAR JUEGO</button>
+        </div>
+
+        <iframe id="game-frame" src=""></iframe>
+    </div>
+
+    <section class="section" id="lore">
+        <h2 class="section-title">EL LORE</h2>
+        <div class="lore-text">
+            Año 2099. La tormenta cibernética ha consumido los núcleos de datos de la antigua red. Los pilotos Vic, Eyal y Jezael han sido digitalizados para defender los últimos fragmentos de memoria. En CYBER-STORM, no solo luchas por sobrevivir, sino por evitar el borrado total del multiverso digital.
+        </div>
+    </section>
+
+    <section class="section" id="encyclopedia">
+        <h2 class="section-title">ENCICLOPEDIA DE DATOS</h2>
+        <div class="encyclopedia-grid">
+            <div class="data-card">
+                <h3>CLASE: SIN PIEDAD</h3>
+                <p>Nave de ataque pesado. Sus disparos atraviesan múltiples capas de seguridad enemiga.</p>
+            </div>
+            <div class="data-card">
+                <h3>CLASE: PRO PIZZA</h3>
+                <p>Especialista en recolección. Su escudo regenerativo le permite aguantar impactos constantes.</p>
+            </div>
+            <div class="data-card">
+                <h3>CLASE: EL PAPU</h3>
+                <p>Prototipo de velocidad. Capaz de hackear la posición de los enemigos en pantalla.</p>
+            </div>
+            <div class="data-card">
+                <h3>ENEMIGO: KRAKEN-VOID</h3>
+                <p>Entidad masiva que lanza pulsos electromagnéticos. Aparece en niveles superiores.</p>
+            </div>
+            <div class="data-card">
+                <h3>OBSTÁCULO: MINA DE NEÓN</h3>
+                <p>Trampas estáticas que drenan tu barra de energía si no son destruidas a tiempo.</p>
+            </div>
+            <div class="data-card">
+                <h3>PILOTOS LEYENDA</h3>
+                <p>Eyal y Jezael: Escuadrón de soporte que aparece al activar el modo Co-Op local.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="credits-footer" id="credits">
+        <h2 style="color: var(--magenta); margin-bottom: 20px;">CREADOR MAESTRO</h2>
+        <h3 style="font-size: 3rem; color: var(--cyan); text-shadow: 0 0 20px var(--cyan);">VIC</h3>
+        <p style="margin-top: 20px; color: #555;">© 2026 CYBER-STORM OMEGA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const pageMusic = document.getElementById('page-music');
+        const sideNav = document.getElementById('sideNav');
+        const gameFrame = document.getElementById('game-frame');
+        const startScreen = document.getElementById('start-screen');
+        const pauseScreen = document.getElementById('pause-screen');
+        const controlBtn = document.getElementById('control-btn');
+
+        // Función Menú
+        function toggleMenu() {
+            sideNav.classList.toggle('active');
+        }
+
+        // Iniciar Juego y Música
+        function playGame() {
+            // Ponemos música de la página (opcional, algunos prefieren silencio al jugar)
+            // pageMusic.play(); 
+            
+            startScreen.style.display = 'none';
+            gameFrame.style.display = 'block';
+            controlBtn.style.display = 'block';
+            gameFrame.src = "CYBER-STORM_OMEGA_REMASTER_v1.13.0.html";
+        }
+
+        // Pausar
+        function pauseGame() {
+            pauseScreen.style.display = 'flex';
+            // Detenemos la interacción con el frame ocultándolo o poniendo un overlay
+        }
+
+        // Reanudar
+        function resumeGame() {
+            pauseScreen.style.display = 'none';
+        }
+
+        // Salir
+        function exitGame() {
+            pauseScreen.style.display = 'none';
+            gameFrame.style.display = 'none';
+            controlBtn.style.display = 'none';
+            startScreen.style.display = 'flex';
+            gameFrame.src = ""; // Resetea el juego
+        }
+
+        // La música suena al primer clic en la página
+        document.body.addEventListener('click', function() {
+            if (startScreen.style.display !== 'none') {
+                pageMusic.play().catch(e => {});
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
