@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-<title>CYBER-STORM: OMEGA REMASTER v1.13.0</title>
+<title>CYBER-STORM: OMEGA REMASTER v1.14.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -233,15 +233,15 @@ canvas{display:block;transition:filter 0.2s;}
 <body>
 
 <div id="boot">
-  <div class="boot-line" id="bl0">[ CYBER-STORM :: OMEGA REMASTER v1.13.0 — PESADILLA MORTAL ]</div>
+  <div class="boot-line" id="bl0">[ CYBER-STORM :: OMEGA REMASTER v1.14.0 — MODO HISTORIA + MELEE UPDATE ]</div>
   <div class="boot-line" id="bl1">> Inicializando núcleo cuántico OMEGA-MAX...</div>
-  <div class="boot-line" id="blE" style="color:#f0f;">> [ ALERTA ] Protocolo PESADILLA MORTAL v1.13 activado por aloe_vera...</div>
-  <div class="boot-line" id="bl2">> Cargando MÁS DE 60 CLASES en la base de datos...</div>
+  <div class="boot-line" id="blE" style="color:#f0f;">> [ ALERTA ] v1.14.0: SAMURAI · VAMPIRE · BRAWLER · MODO HISTORIA activados</div>
+  <div class="boot-line" id="bl2">> Cargando MÁS DE 65 CLASES en la base de datos...</div>
   <div class="boot-line" id="bl3">> Nuevos jefes NOVA PRIME & KRAKEN CÓSMICO detectados...</div>
-  <div class="boot-line" id="bl4">> Módulo MULTIJUGADOR LOCAL cargando...</div>
-  <div class="boot-line" id="bl5">> 70+ LOGROS · MODOS DE JUEGO · POWER-UPS activados...</div>
-  <div class="boot-line" id="bl6">> Dificultad PESADILLA MORTAL desbloqueada. ¡Buena suerte!</div>
-  <div class="boot-line" id="bl7">> Verificando integridad de datos v1.13.0...<span style="color:#0f0"> OK</span></div>
+  <div class="boot-line" id="bl4">> Módulo MULTIJUGADOR LOCAL v2 — soporte móvil mejorado...</div>
+  <div class="boot-line" id="bl5">> 70+ LOGROS · MODO HISTORIA · POWER-UPS activados...</div>
+  <div class="boot-line" id="bl6">> GORROS rediseñados con previsualización HD.</div>
+  <div class="boot-line" id="bl7">> Verificando integridad de datos v1.14.0...<span style="color:#0f0"> OK</span></div>
   <div id="boot-bar-wrap"><div id="boot-bar-label">CARGANDO ENTORNO DE COMBATE</div><div id="boot-bar-bg"><div id="boot-bar"></div></div></div>
 </div>
 
@@ -365,6 +365,19 @@ canvas{display:block;transition:filter 0.2s;}
   </div>
 </div>
 
+<!-- MODO HISTORIA -->
+<div id="story-modal" class="big-modal hidden">
+  <div class="big-modal-content" style="border-color:#00ff88;box-shadow:0 0 50px rgba(0,255,136,.15);">
+    <h2 style="color:#00ff88;">📖 MODO HISTORIA — CYBER-STORM</h2>
+    <hr class="lore-divider" style="border-color:rgba(0,255,136,.2);">
+    <p class="lore-text" style="text-align:center;color:#aaa;font-size:.65rem;">Elige una misión. Cada misión tiene un objetivo específico. Al completarlo, recibes créditos y desbloqueas la siguiente.</p>
+    <div id="story-missions" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;"></div>
+    <div style="text-align:center;margin-top:20px;">
+      <button class="btn" style="border-color:#00ff88;color:#00ff88;" onclick="closeStoryMode()"><span>CERRAR</span></button>
+    </div>
+  </div>
+</div>
+
 <div id="progress-modal" class="big-modal hidden">
   <div class="big-modal-content">
     <h2>🏆 TABLA DE PROGRESO Y LOGROS</h2>
@@ -397,12 +410,11 @@ canvas{display:block;transition:filter 0.2s;}
     <div class="credits-section">
       <div class="credits-person"><div style="font-size:2rem;">🌿</div><div class="cred-name">aloe_vera</div><div class="cred-role">CREADOR DEL JUEGO · DISEÑO · PROGRAMACIÓN</div></div>
       <div class="credits-person"><div style="font-size:2rem;">🔥</div><div class="cred-name">Leo</div><div class="cred-role">INSPIRACIÓN · CLASE ESPECIAL · BETA TESTER</div></div>
-      <div class="credits-person"><div style="font-size:2rem;">💛</div><div class="cred-name">Denise</div><div class="cred-role">INSPIRACIÓN · CLASE ESPECIAL</div></div>
       <div class="credits-person"><div style="font-size:2rem;">⚡</div><div class="cred-name">Yari</div><div class="cred-role">INSPIRACIÓN · CLASE YARI</div></div>
       <div class="credits-person"><div style="font-size:2rem;">🛡️</div><div class="cred-name">Eyal</div><div class="cred-role">HERMANO DEL CREADOR · CLASE ESPECIAL</div></div>
       <div class="credits-person"><div style="font-size:2rem;">🚀</div><div class="cred-name">Jezael</div><div class="cred-role">HERMANO DEL CREADOR · CLASE ESPECIAL</div></div>
       <hr class="lore-divider">
-      <div style="font-size:.55rem;color:#555;letter-spacing:2px;">CYBER-STORM OMEGA REMASTER v1.12.0 · 2026<br>Hecho con ❤️ y mucho caffeine</div>
+      <div style="font-size:.55rem;color:#555;letter-spacing:2px;">CYBER-STORM OMEGA REMASTER v1.14.0 · 2026<br>Hecho con ❤️ y mucho caffeine</div>
     </div>
     <div style="text-align:center;margin-top:20px;"><button class="btn cred-btn" onclick="closeCredits()"><span>CERRAR</span></button></div>
   </div>
@@ -414,8 +426,8 @@ canvas{display:block;transition:filter 0.2s;}
     <div class="glitch-wrap" id="title-clicker">
       <div class="menu-title">CYBER-STORM<div class="glitch-a">CYBER-STORM</div><div class="glitch-b">CYBER-STORM</div></div>
     </div>
-    <div class="menu-sub" style="color:#fff;">VERSIÓN DEFINITIVA v1.13.0</div>
-    <div class="update-badge">✦ PESADILLA MORTAL — +60 CLASES · 70+ LOGROS · MULTIJUGADOR · JEFES ÉPICOS ✦</div>
+    <div class="menu-sub" style="color:#fff;">VERSIÓN DEFINITIVA v1.14.0</div>
+    <div class="update-badge">✦ MODO HISTORIA · SAMURAI/VAMPIRE/BRAWLER · GORROS HD · MULTIJUGADOR v2 ✦</div>
     <div id="menu-stats">
       <div>CRÉDITOS: <span id="menu-credits-display">0</span></div>
       <div style="margin-top:8px;">TANQUES (SIN PIEDAD): <span id="red-kills-display">0</span>/10</div>
@@ -446,7 +458,8 @@ canvas{display:block;transition:filter 0.2s;}
       </div>
       <div class="btn-flex-container">
         <button class="btn daily-btn" onclick="openDaily()"><span>🔥 DESAFÍO DIARIO</span></button>
-        <button class="btn lore-btn" onclick="openEncyclopedia()"><span>📖 CICLOPEDIA</span></button>
+        <button class="btn" onclick="openStoryMode()" style="border-color:#00ff88;color:#00ff88;"><span>📖 MODO HISTORIA</span></button>
+        <button class="btn lore-btn" onclick="openEncyclopedia()"><span>📚 CICLOPEDIA</span></button>
         <button class="btn cred-btn" onclick="openCredits()"><span>💖 CRÉDITOS</span></button>
         <button class="btn" onclick="startGame()" style="width:100%;margin-top:10px;font-size:1.2rem;padding:15px;"><span>INICIAR SISTEMA</span></button>
       </div>
@@ -502,9 +515,9 @@ const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
 resize();window.addEventListener('resize',resize);
 
-// ========== DB v1.12.0 ==========
-let db=JSON.parse(localStorage.getItem('cyberDB_v13'))||(() => {
-  let old=JSON.parse(localStorage.getItem('cyberDB_v12')||localStorage.getItem('cyberDB_v11')||localStorage.getItem('cyberDB_v10')||'null')||{};
+// ========== DB v1.14.0 ==========
+let db=JSON.parse(localStorage.getItem('cyberDB_v14'))||(() => {
+  let old=JSON.parse(localStorage.getItem('cyberDB_v13')||localStorage.getItem('cyberDB_v12')||localStorage.getItem('cyberDB_v11')||localStorage.getItem('cyberDB_v10')||'null')||{};
   return {
     totalKills:old.totalKills||0, redKills:old.redKills||0, credits:old.credits||0,
     omegaUnlocked:old.omegaUnlocked||false, sinpiedadUnlocked:old.sinpiedadUnlocked||false,
@@ -518,7 +531,9 @@ let db=JSON.parse(localStorage.getItem('cyberDB_v13'))||(() => {
     eyalUnlocked:old.eyalUnlocked||false, jezaelUnlocked:old.jezaelUnlocked||false, chronosUnlocked:old.chronosUnlocked||false, venomUnlocked:old.venomUnlocked||false,
     paladinUnlocked:old.paladinUnlocked||false, infernoUnlocked:old.infernoUnlocked||false, glacierUnlocked:old.glacierUnlocked||false, magnetoUnlocked:old.magnetoUnlocked||false,
     rocketUnlocked:old.rocketUnlocked||false, samuraiUnlocked:old.samuraiUnlocked||false, vampireUnlocked:old.vampireUnlocked||false, dragonUnlocked:old.dragonUnlocked||false,
+    brawlerUnlocked:old.brawlerUnlocked||false,
     droneUnlocked:old.droneUnlocked||false, propizzaUnlocked:old.propizzaUnlocked||false, papuUnlocked:old.papuUnlocked||false,
+    storyProgress:old.storyProgress||{},
     newClasses:old.newClasses||{},
     upgrades:old.upgrades||{speed:0,dash:0,dmg:0},
     accessories:old.accessories||{aura:false,laser:false,startShield:false,magnet:false,bombCache:false,wrench:false,overclock:false,doubleShot:false,nanobots:false,timeDilation:false},
@@ -541,7 +556,7 @@ let db=JSON.parse(localStorage.getItem('cyberDB_v13'))||(() => {
     dailyClaimed:old.dailyClaimed||false
   };
 })();
-function saveDB(){localStorage.setItem('cyberDB_v13',JSON.stringify(db));updateMenuStats();}
+function saveDB(){localStorage.setItem('cyberDB_v14',JSON.stringify(db));updateMenuStats();}
 
 // Daily Logic
 let todayStr = new Date().toLocaleDateString();
@@ -757,9 +772,90 @@ function claimDaily() {
     }
 }
 
+// ========== MODO HISTORIA v1.14.0 ==========
+const STORY_MISSIONS=[
+  {id:'m1', title:'INFILTRACIÓN', icon:'🔓', desc:'Derrota 20 enemigos en una partida. Primera misión de reclutamiento.', reward:1000, goal:'kills', amount:20, waves:0, unlocked:true},
+  {id:'m2', title:'OLEADA ROJA', icon:'🔴', desc:'Destruye 5 TANQUES en una sola partida. Los tanques son los rojos.', reward:2000, goal:'redKills', amount:5, unlocked:false},
+  {id:'m3', title:'SUPERVIVIENTE', icon:'🌊', desc:'Llega a la Oleada 8 sin morir. El CORP-NET te quiere muerto.', reward:3000, goal:'wave', amount:8, unlocked:false},
+  {id:'m4', title:'CAZA AL JEFE', icon:'👑', desc:'Derrota a tu primer Boss. El cuartel general tiembla.', reward:4000, goal:'bossKill', amount:1, unlocked:false},
+  {id:'m5', title:'MASACRE', icon:'💀', desc:'100 kills en una sola partida. El terror se extiende.', reward:5000, goal:'kills', amount:100, unlocked:false},
+  {id:'m6', title:'LA TRAMPA', icon:'⚡', desc:'Llega a la Oleada 15. CORP-NET activa el protocolo OMEGA.', reward:7000, goal:'wave', amount:15, unlocked:false},
+  {id:'m7', title:'ÚLTIMO BASTIÓN', icon:'🌑', desc:'Derrota 10 tanques en una partida. El frente no puede caer.', reward:8000, goal:'redKills', amount:10, unlocked:false},
+  {id:'m8', title:'PROTOCOLO OMEGA', icon:'💥', desc:'Sobrevive hasta la Oleada 25. La operación final comienza.', reward:12000, goal:'wave', amount:25, unlocked:false},
+  {id:'m9', title:'CYBER-STORM', icon:'✨', desc:'200 kills en una sola partida. El CORP-NET tiembla ante ti.', reward:15000, goal:'kills', amount:200, unlocked:false},
+  {id:'m10',title:'OMEGA REMASTER', icon:'🏆', desc:'Derrota a 3 bosses distintos. Eres la leyenda de CYBER-STORM.', reward:25000, goal:'allBosses', amount:3, unlocked:false},
+];
+
+// Desbloquear misiones en cadena
+function updateStoryUnlocks(){
+  for(let i=1;i<STORY_MISSIONS.length;i++){
+    if(db.storyProgress&&db.storyProgress[STORY_MISSIONS[i-1].id]==='done'){
+      STORY_MISSIONS[i].unlocked=true;
+    }
+  }
+}
+
+function openStoryMode(){
+  playSFX('select');
+  updateStoryUnlocks();
+  const container=document.getElementById('story-missions');
+  container.innerHTML='';
+  STORY_MISSIONS.forEach((m,idx)=>{
+    const done=db.storyProgress&&db.storyProgress[m.id]==='done';
+    const locked=!m.unlocked&&!done;
+    const div=document.createElement('div');
+    div.style.cssText=`border:1px solid ${done?'#00ff88':locked?'#333':'rgba(0,255,136,.4)'};background:${done?'rgba(0,255,136,.08)':locked?'rgba(0,0,0,.5)':'rgba(0,255,136,.04)'};padding:12px;border-radius:2px;`;
+    div.innerHTML=`
+      <div style="font-family:'Orbitron',sans-serif;font-size:.7rem;color:${done?'#00ff88':locked?'#555':'#fff'};display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+        <span style="font-size:1.2rem">${done?'✅':locked?'🔒':m.icon}</span>
+        <span>Misión ${idx+1}: ${m.title}</span>
+      </div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:.58rem;color:${locked?'#444':'#aaa'};margin-bottom:6px;">${locked?'[ BLOQUEADO — COMPLETA LA MISIÓN ANTERIOR ]':m.desc}</div>
+      ${!locked?`<div style="font-family:'Share Tech Mono';font-size:.55rem;color:#ffeb3b;">RECOMPENSA: ${m.reward} ¢${done?' — ✓ RECLAMADO':''}</div>`:''}
+      ${!done&&!locked?`<div style="margin-top:6px;font-size:.52rem;color:#00ff88;font-family:'Share Tech Mono';">Progreso: ${getMissionProgress(m)}</div>`:''}
+    `;
+    container.appendChild(div);
+  });
+  document.getElementById('story-modal').classList.remove('hidden');
+}
+function closeStoryMode(){playSFX('select');document.getElementById('story-modal').classList.add('hidden');}
+
+function getMissionProgress(m){
+  if(m.goal==='kills') return `${Math.min(db.sessionStoryKills||0,m.amount)} / ${m.amount} kills (esta partida)`;
+  if(m.goal==='redKills') return `${Math.min(db.sessionRedKills||0,m.amount)} / ${m.amount} tanques (esta partida)`;
+  if(m.goal==='wave') return `Mejor oleada: ${db.bestWave||0} / ${m.amount}`;
+  if(m.goal==='bossKill') return db.bossDefeated?'Boss derrotado ✓':'No derrotado aún';
+  if(m.goal==='allBosses'){let c=['bossKill','bossGlitch','bossEye'].filter(id=>db.achievements[id]).length;return `${c} / 3 bosses derrotados`;}
+  return '';
+}
+
+function checkStoryMissions(){
+  if(!db.storyProgress)db.storyProgress={};
+  updateStoryUnlocks();
+  STORY_MISSIONS.forEach(m=>{
+    if(db.storyProgress[m.id]==='done')return;
+    if(!m.unlocked)return;
+    let complete=false;
+    if(m.goal==='kills'&&sessionKills>=m.amount)complete=true;
+    if(m.goal==='redKills'&&(db.sessionRedKills||0)>=m.amount)complete=true;
+    if(m.goal==='wave'&&wave>=m.amount)complete=true;
+    if(m.goal==='bossKill'&&db.bossDefeated)complete=true;
+    if(m.goal==='allBosses'){let c=['bossKill','bossGlitch','bossEye'].filter(id=>db.achievements[id]).length;if(c>=3)complete=true;}
+    if(complete){
+      db.storyProgress[m.id]='done';
+      db.credits+=m.reward;
+      db.totalCreditsEarned=(db.totalCreditsEarned||0)+m.reward;
+      saveDB();
+      playSFX('nova');
+      // Show toast
+      const fake={icon:m.icon,name:'HISTORIA: '+m.title,desc:'¡Misión completada! +'+m.reward+' ¢'};
+      toastQueue.push(fake);if(!toastRunning)showNextToast();
+    }
+  });
+}
+
 // Encyclopedia Modal
 function openEncyclopedia() {
-    playSFX('select');
     let enList = `
         <b>CHASER (Magenta):</b> Básico, te persigue directo.<br>
         <b>FAST (Amarillo):</b> Muy rápido, poca vida.<br>
@@ -862,10 +958,62 @@ function renderHatPicker(){
     const btn=document.createElement('button');
     btn.className='hat-btn'+(selected?' selected':'')+((!owned)?' locked-hat':'');
     btn.title=h.name+(owned?'':' ['+h.cost+'¢]');
-    btn.innerHTML=`<span style="font-size:1.3rem">${h.emoji.replace('👾👑','👑')}</span><span style="font-family:'Share Tech Mono';font-size:.38rem;color:#aaa;margin-top:1px">${h.name}</span>`;
+    // Canvas preview
+    const cv=document.createElement('canvas');cv.width=40;cv.height=40;
+    const c2=cv.getContext('2d');
+    // Draw mini player circle
+    c2.fillStyle='rgba(0,0,0,0)';c2.clearRect(0,0,40,40);
+    c2.fillStyle=db.selectedColor||'#0ff';c2.shadowBlur=8;c2.shadowColor=db.selectedColor||'#0ff';
+    c2.beginPath();c2.arc(20,26,10,0,Math.PI*2);c2.fill();
+    c2.fillStyle='#fff';c2.shadowBlur=0;c2.beginPath();c2.arc(20,26,4,0,Math.PI*2);c2.fill();
+    // Draw hat on mini player
+    drawHatOnCtx(c2,20,26,10,h.id);
+    btn.appendChild(cv);
+    const lbl=document.createElement('span');lbl.style.cssText='font-family:Share Tech Mono;font-size:.35rem;color:#aaa;margin-top:1px;display:block;overflow:hidden;white-space:nowrap;max-width:44px;text-overflow:ellipsis;';
+    lbl.innerText=h.name;
+    btn.appendChild(lbl);
     if(owned)btn.onclick=()=>{db.hat=h.id;saveDB();renderHatPicker();};
     el.appendChild(btn);
   });
+}
+
+// Dibuja sombrero en un contexto dado (para preview)
+function drawHatOnCtx(c2,cx,cy,r,h){
+  if(h==='none')return;
+  c2.save();
+  const col=db.selectedColor||'#0ff';
+  if(h==='cap'){c2.fillStyle='#ff6600';c2.fillRect(cx-r*.9,cy-r-1,r*1.8,r*.45);c2.fillStyle='#cc4400';c2.fillRect(cx-r*.55,cy-r-r*.6,r*1.1,r*.62);}
+  else if(h==='crown'){c2.fillStyle='#ffd700';c2.beginPath();c2.moveTo(cx-r*.85,cy-r+2);[-r*.8,-r*.2,r*.2,r*.8].forEach((px,i)=>c2.lineTo(cx+px,cy-[r*.85,r*1.3,r*1.3,r*.85][i]));c2.lineTo(cx+r*.85,cy-r+2);c2.closePath();c2.fill();}
+  else if(h==='ninja'){c2.fillStyle='#111';c2.fillRect(cx-r*1.1,cy-r*.45,r*2.2,r*.6);}
+  else if(h==='cyber'){c2.strokeStyle=col;c2.lineWidth=2;c2.beginPath();c2.arc(cx,cy,r+3,-Math.PI*.85,-Math.PI*.15);c2.stroke();c2.fillStyle=col;c2.beginPath();c2.arc(cx,cy-r-8,2.5,0,Math.PI*2);c2.fill();}
+  else if(h==='cowboy'){c2.fillStyle='#8B4513';c2.beginPath();c2.ellipse(cx,cy-r+3,r*1.6,r*.35,0,0,Math.PI*2);c2.fill();c2.fillRect(cx-r*.65,cy-r-r*.65,r*1.3,r*.7);}
+  else if(h==='wizard'){c2.fillStyle='#220055';c2.beginPath();c2.moveTo(cx-r*.8,cy-r+4);c2.lineTo(cx,cy-r*2.4);c2.lineTo(cx+r*.8,cy-r+4);c2.closePath();c2.fill();}
+  else if(h==='pirate'){c2.fillStyle='#111';c2.fillRect(cx-r*.6,cy-r-r*.5,r*1.2,r*.55);}
+  else if(h==='astro'){c2.fillStyle='#ddd';c2.beginPath();c2.arc(cx,cy-r*.5,r*.9,Math.PI,0);c2.fill();c2.fillStyle='rgba(100,200,255,.4)';c2.beginPath();c2.arc(cx-r*.2,cy-r*.8,r*.35,0,Math.PI*2);c2.fill();}
+  else if(h==='santa'){c2.fillStyle='#cc0000';c2.beginPath();c2.moveTo(cx-r*.7,cy-r+3);c2.lineTo(cx,cy-r*2);c2.lineTo(cx+r*.7,cy-r+3);c2.closePath();c2.fill();c2.fillStyle='#fff';c2.fillRect(cx-r*.8,cy-r-2,r*1.6,r*.3);}
+  else if(h==='devil'){c2.fillStyle='#cc0000';c2.beginPath();c2.moveTo(cx-r*.5,cy-r);c2.lineTo(cx-r*.3,cy-r-r*.8);c2.lineTo(cx-r*.1,cy-r-r*.3);c2.fill();c2.beginPath();c2.moveTo(cx+r*.5,cy-r);c2.lineTo(cx+r*.3,cy-r-r*.8);c2.lineTo(cx+r*.1,cy-r-r*.3);c2.fill();}
+  else if(h==='halo'){c2.strokeStyle='#ffd700';c2.lineWidth=2;c2.beginPath();c2.ellipse(cx,cy-r-6,r*.8,r*.3,0,0,Math.PI*2);c2.stroke();}
+  else if(h==='alien'){c2.fillStyle='#0f0';c2.beginPath();c2.ellipse(cx,cy-r-2,r*.7,r*.5,0,0,Math.PI*2);c2.fill();}
+  else if(h==='headphone'){c2.strokeStyle='#555';c2.lineWidth=3;c2.beginPath();c2.arc(cx,cy-r+5,r*1.1,Math.PI,0);c2.stroke();c2.fillStyle='#f00';c2.fillRect(cx-r*1.3,cy-r+2,5,8);c2.fillRect(cx+r*1.3-5,cy-r+2,5,8);}
+  else if(h==='pixelcrown'){c2.fillStyle='#ffd700';c2.fillRect(cx-r*.8,cy-r-4,r*1.6,3);c2.fillRect(cx-r*.8,cy-r-8,3,4);c2.fillRect(cx-2,cy-r-8,3,4);c2.fillRect(cx+r*.8-3,cy-r-8,3,4);}
+  else if(h==='sunglasses'){c2.fillStyle='#000';c2.fillRect(cx-r*.8,cy-r*.4,r*.7,r*.3);c2.fillRect(cx+r*.1,cy-r*.4,r*.7,r*.3);}
+  else if(h==='pumpkin'){c2.fillStyle='#ff6600';c2.beginPath();c2.ellipse(cx,cy-r-3,r*.9,r*.7,0,0,Math.PI*2);c2.fill();c2.fillStyle='#33aa00';c2.fillRect(cx-2,cy-r-r*.9-3,4,r*.5);}
+  else if(h==='helmet'){c2.fillStyle='#4a4a4a';c2.beginPath();c2.ellipse(cx,cy-r,r*1.3,r*.9,0,Math.PI,0);c2.fill();c2.fillStyle='#666';c2.fillRect(cx-r*1.3,cy-r,r*2.6,r*.35);}
+  else if(h==='dragon'){c2.fillStyle='#cc2200';c2.beginPath();c2.moveTo(cx,cy-r-r*.8);c2.lineTo(cx-r*.4,cy-r+2);c2.lineTo(cx+r*.4,cy-r+2);c2.closePath();c2.fill();}
+  else if(h==='jester'){c2.fillStyle='#ff00ff';c2.beginPath();c2.moveTo(cx-r*.7,cy-r+3);c2.lineTo(cx-r*.3,cy-r-r*.3);c2.lineTo(cx,cy-r+3);c2.closePath();c2.fill();c2.fillStyle='#00ffff';c2.beginPath();c2.moveTo(cx,cy-r+3);c2.lineTo(cx+r*.3,cy-r-r*.3);c2.lineTo(cx+r*.7,cy-r+3);c2.closePath();c2.fill();}
+  else if(h==='robot'){c2.fillStyle='#888';c2.fillRect(cx-r*.9,cy-r-r*.6,r*1.8,r*.7);c2.fillStyle='#00ffff';c2.fillRect(cx-r*.5,cy-r-r*.5,r*.35,r*.3);c2.fillRect(cx+r*.1,cy-r-r*.5,r*.35,r*.3);}
+  else if(h==='viking'){c2.fillStyle='#8B4513';c2.fillRect(cx-r,cy-r-2,r*2,r*.6);c2.fillStyle='#aaa';c2.fillRect(cx-r*1.2,cy-r+2,r*.25,r*.4);c2.fillRect(cx+r*.9,cy-r+2,r*.25,r*.4);}
+  else if(h==='tophat'){c2.fillStyle='#111';c2.fillRect(cx-r*.65,cy-r-r*.9,r*1.3,r*.95);c2.fillRect(cx-r,cy-r-2,r*2,r*.18);}
+  else if(h==='brain'){c2.fillStyle='#ff9999';c2.beginPath();c2.arc(cx,cy-r-r*.2,r*.8,0,Math.PI*2);c2.fill();}
+  else if(h==='space'){c2.fillStyle='#333';c2.beginPath();c2.ellipse(cx,cy-r,r*1.4,r,0,Math.PI,0);c2.fill();c2.fillStyle='#88ccff';c2.fillRect(cx-r*.7,cy-r,r*1.4,r*.4);}
+  else if(h==='tiger'){c2.fillStyle='#ff8800';c2.beginPath();c2.arc(cx,cy-r-r*.2,r*.7,0,Math.PI*2);c2.fill();c2.fillStyle='#000';for(let s of [-r*.5,-r*.15,r*.2]){c2.fillRect(cx+s,cy-r-r*.9,r*.1,r*.45);}}
+  else if(h==='crab'){c2.fillStyle='#f00';c2.beginPath();c2.ellipse(cx,cy-r-2,r*.8,r*.5,0,0,Math.PI*2);c2.fill();}
+  else if(h==='lightning'){c2.fillStyle='#ffff00';c2.beginPath();c2.moveTo(cx+r*.2,cy-r-r*.9);c2.lineTo(cx-r*.2,cy-r-r*.3);c2.lineTo(cx+r*.1,cy-r-r*.3);c2.lineTo(cx-r*.3,cy-r);c2.lineTo(cx+r*.3,cy-r-r*.2);c2.lineTo(cx,cy-r-r*.2);c2.closePath();c2.fill();}
+  else if(h==='flower'){const petals=['#ff88cc','#ff4488','#ff88ff','#ff0088','#ffaadd'];for(let i=0;i<5;i++){let ba=i*Math.PI*.4-Math.PI*.2;c2.fillStyle=petals[i%5];c2.beginPath();c2.ellipse(cx+Math.cos(ba)*r*.8,cy-r+Math.sin(ba)*r*.8,r*.35,r*.2,ba,0,Math.PI*2);c2.fill();}c2.fillStyle='#ffff00';c2.beginPath();c2.arc(cx,cy-r,r*.28,0,Math.PI*2);c2.fill();}
+  else{// fallback: dot with color
+    c2.fillStyle='#ffeb3b';c2.beginPath();c2.arc(cx,cy-r-r*.3,r*.4,0,Math.PI*2);c2.fill();
+  }
+  c2.restore();
 }
 function renderHatShop(){
   const el=document.getElementById('hat-shop-list');if(!el)return;el.innerHTML='';
@@ -874,7 +1022,18 @@ function renderHatShop(){
     const owned=db.hatsOwned.includes(h.id);
     const div=document.createElement('div');
     div.className='shop-item'+(owned?' maxed':'');
-    div.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><span style="font-size:1.5rem">${h.emoji.replace('👾👑','👑')}</span><div><div class="shop-item-title">${h.name}</div><div class="shop-item-cost">${owned?'✓ OBTENIDO':'COSTO: '+h.cost+' ¢'}</div></div></div>`;
+    div.style.cssText='display:flex;align-items:center;gap:10px;';
+    // mini canvas preview
+    const cv=document.createElement('canvas');cv.width=32;cv.height=32;cv.style.flexShrink='0';
+    const c2=cv.getContext('2d');
+    c2.fillStyle=db.selectedColor||'#0ff';c2.shadowBlur=6;c2.shadowColor=db.selectedColor||'#0ff';
+    c2.beginPath();c2.arc(16,21,8,0,Math.PI*2);c2.fill();
+    c2.fillStyle='#fff';c2.shadowBlur=0;c2.beginPath();c2.arc(16,21,3,0,Math.PI*2);c2.fill();
+    drawHatOnCtx(c2,16,21,8,h.id);
+    div.appendChild(cv);
+    const info=document.createElement('div');info.style.flex='1';
+    info.innerHTML=`<div class="shop-item-title">${h.name}</div><div class="shop-item-cost">${owned?'✓ OBTENIDO':'COSTO: '+h.cost+' ¢'}</div>`;
+    div.appendChild(info);
     if(!owned)div.onclick=()=>buyHat(h);
     el.appendChild(div);
   });
@@ -1178,6 +1337,8 @@ function checkSecretCode(){
     case 'full power':  playSFX('nova');db.credits+=50000;db.upgrades.speed=5;db.upgrades.dash=5;db.upgrades.dmg=3;saveDB();updateShopUI();alert('💥 FULL POWER: +50000 CRÉDITOS + UPGRADES MAX!');break;
     case 'cyber storm': playSFX('select');db.credits+=7777;saveDB();alert('⚡ +7777 CRÉDITOS TORMENTOSOS!');break;
     case 'noche eterna':playSFX('nova');db.omegaUnlocked=true;db.apexUnlocked=true;db.shadowUnlocked=true;db.ghostUnlocked=true;db.novaUnlocked=true;saveDB();renderClassSelector();alert('🌑 CLASES OMEGA, APEX, SHADOW, GHOST, NOVA!');break;
+    case 'bushido code': u('samuraiUnlocked','SAMURAI','⚔️ CLASE SAMURAI DESBLOQUEADA! El bushido te guía.');break;
+    case 'blood pact':  u('vampireUnlocked','VAMPIRE','🧛 CLASE VAMPIRE DESBLOQUEADA! La oscuridad te llama.');break;
     default: playSFX('hit');alert('❌ Código inválido o encriptado. Sigue intentando...');
   }
 }
@@ -1269,6 +1430,11 @@ const classDefinitions=[
   
   // CLASE DIOS
   {id:'aloe',      name:'ALOE ✨ [DIOS]',color:'#ffeb3b', desc:'CLASE SUPREMA. 4 habilidades + auto-disparo + dash.',req:'VIC + Boss + 500 kills + código aloe vera',check:()=>db.aloeUnlocked,isSuper:true},
+
+  // CLASES MELEE v1.14.0
+  {id:'samurai',   name:'SAMURAI ⚔️',    color:'#ff6622', desc:'[MELEE] Corte en área. Dash lanza ola de espadas. Sin balas a distancia.',req:'Código: bushido code',check:()=>db.samuraiUnlocked,isSuper:false},
+  {id:'vampire',   name:'VAMPIRE 🧛',    color:'#880022', desc:'[MELEE] Vida robada por contacto. Golpes drenan HP. Aura oscura mortal.',req:'Código: blood pact',check:()=>db.vampireUnlocked,isSuper:false},
+  {id:'brawler',   name:'BRAWLER 🥊',    color:'#ff9900', desc:'[MELEE] Ultra-rápido. Destruye enemigos por colisión. Puñetazo AOE al disparar.',req:'Tienda (6000¢)',check:()=>db.newClasses['brawler'], cost:6000, isNew:true},
 ];
 
 function openClassModal(){playSFX('select');renderClassSelector();document.getElementById('class-modal').classList.remove('hidden');}
@@ -1395,7 +1561,7 @@ function startGame(){
   document.getElementById('training-badge').style.display=isTrainingMode?'inline-block':'none';
   document.getElementById('menu').classList.add('hidden');
   document.getElementById('ui').classList.remove('hidden');
-  gameState='PLAY';score=0;wave=1;sessionKills=0;sessionDeniusKills=0;sessionBombs=0;ghostWave5Checked=false;
+  gameState='PLAY';score=0;wave=1;sessionKills=0;sessionDeniusKills=0;sessionBombs=0;ghostWave5Checked=false;db.sessionRedKills=0;
   enemies=[];bullets=[];enemyBullets=[];particles=[];waveTimer=0;frameCount=0;
   if(!isTrainingMode){db.sessionCount=(db.sessionCount||0)+1;saveDB();}
   mobileMode=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
@@ -1460,12 +1626,37 @@ canvas.addEventListener('touchstart',e=>{if(gameState==='PLAY'){let t=e.changedT
 
 // ========== ACCIONES ==========
 function fire(){
-  if(player.class==='tanker' || player.class==='summoner') return; // no disparan
-  if(player.class==='colossus') { // colossus dispara muy poco
-    if(frameCount - player.lastFiredFrame < 60) return;
-    bullets.push({x:player.x,y:player.y,vx:Math.cos(a)*8,vy:Math.sin(a)*8,life:1,dmg:d*1.5});shake=3;playSFX('shoot');return;
+  if(player.class==='tanker' || player.class==='summoner') return;
+  if(player.class==='vampire') {
+    // Vampire: AOE drain aura instead of shooting
+    let drained=false;
+    enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<80){en.hp-=1;drained=true;if(en.hp<=0){en.dead=true;processKill(en);}else spawnExplosion(en.x,en.y,'#880022',4);}});
+    if(drained){player.shieldFrames=Math.min((player.shieldFrames||0)+15,300);if(settings.vfx)spawnExplosion(player.x,player.y,'#880022',8);playSFX('hit');}
+    return;
   }
-  if(player.class==='bloodmage' && player.shieldFrames<=0) return; // necesita vida
+  if(player.class==='samurai') {
+    // Samurai: sword sweep in direction
+    const a2=Math.atan2(mouse.y-player.y,mouse.x-player.x);
+    let hit=false;
+    enemies.forEach(en=>{if(!en.dead){let d=Math.hypot(player.x-en.x,player.y-en.y);if(d<120){let ang=Math.atan2(en.y-player.y,en.x-player.x);let diff=Math.abs(ang-a2);if(diff>Math.PI)diff=Math.PI*2-diff;if(diff<1.1){en.hp-=(2+(player.dmgBonus||0));hit=true;spawnExplosion(en.x,en.y,'#ff6622',8);if(en.hp<=0){en.dead=true;processKill(en);}else{en.x+=Math.cos(a2)*60;en.y+=Math.sin(a2)*60;}}}}});
+    if(settings.vfx)spawnExplosion(player.x+Math.cos(a2)*60,player.y+Math.sin(a2)*60,'#ff6622',12);
+    playSFX('explosion'); shake=6; player.lastFiredFrame=frameCount; return;
+  }
+  if(player.class==='brawler') {
+    // Brawler: punch AOE around player
+    const a2=Math.atan2(mouse.y-player.y,mouse.x-player.x);
+    enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<100){en.hp-=(1+(player.dmgBonus||0));let pa=Math.atan2(en.y-player.y,en.x-player.x);en.x+=Math.cos(pa)*100;en.y+=Math.sin(pa)*100;spawnExplosion(en.x,en.y,'#ff9900',6);if(en.hp<=0){en.dead=true;processKill(en);}}});
+    if(settings.vfx)spawnExplosion(player.x,player.y,'#ff9900',15);
+    playSFX('explosion'); shake=8; player.lastFiredFrame=frameCount; return;
+  }
+  if(player.class==='colossus') {
+    if(frameCount - player.lastFiredFrame < 60) return;
+    const aC=Math.atan2(mouse.y-player.y,mouse.x-player.x);
+    const dC=1+(player.dmgBonus||0);
+    bullets.push({x:player.x,y:player.y,vx:Math.cos(aC)*8,vy:Math.sin(aC)*8,life:1,dmg:dC*1.5});shake=3;playSFX('shoot');
+    player.lastFiredFrame=frameCount; return;
+  }
+  if(player.class==='bloodmage' && player.shieldFrames<=0) return;
 
   const a=Math.atan2(mouse.y-player.y,mouse.x-player.x);
   player.lastFiredFrame=frameCount;
@@ -1594,6 +1785,21 @@ function dash(){
   player.dashCooldown=Math.floor(player.dashCDMax*(player.class==='apex'?.55:player.class==='aloe'?.3:player.class==='jezael'?0.1:1));
   player.invFrames=player.class==='phantom'?45:(player.class==='aloe'||player.class==='jezael'?30:20);
   if(player.class==='omega')player.isDashingFrames=15;
+  if(player.class==='samurai'){
+    // Samurai dash: lanza ola de espadas hacia adelante
+    for(let i=-2;i<=2;i++){let ba=a+i*.25;bullets.push({x:player.x,y:player.y,vx:Math.cos(ba)*28,vy:Math.sin(ba)*28,life:1,dmg:(1+(player.dmgBonus||0))*2,color:'#ff6622'});}
+    if(settings.vfx)spawnExplosion(player.x,player.y,'#ff6622',18);
+  }
+  if(player.class==='vampire'){
+    // Vampire dash: drenar a todos los cercanos
+    enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<120){en.hp-=2;player.shieldFrames=Math.min((player.shieldFrames||0)+30,300);if(en.hp<=0){en.dead=true;processKill(en);}else spawnExplosion(en.x,en.y,'#880022',6);}});
+    if(settings.vfx)spawnExplosion(player.x,player.y,'#880022',20);
+  }
+  if(player.class==='brawler'){
+    // Brawler dash: golpear todo al paso
+    enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<80){en.hp-=2;let pa=Math.atan2(en.y-player.y,en.x-player.x);en.x+=Math.cos(pa)*120;en.y+=Math.sin(pa)*120;if(en.hp<=0){en.dead=true;processKill(en);}else spawnExplosion(en.x,en.y,'#ff9900',8);}});
+    if(settings.vfx)spawnExplosion(player.x,player.y,'#ff9900',20);
+  }
   if(player.class==='leo'||player.class==='jezael'||player.class==='dragon'){
     let exColor = player.class==='jezael'?'#ffcc00':player.class==='dragon'?'#00fa9a':'#ff4400';
     enemies.forEach(en=>{if(en.dead)return;let d=Math.hypot(player.x-en.x,player.y-en.y);if(d<160){let pa=Math.atan2(en.y-player.y,en.x-player.x);en.x+=Math.cos(pa)*200;en.y+=Math.sin(pa)*200;en.hp-=2;if(en.hp<=0){en.dead=true;processKill(en);}else spawnExplosion(en.x,en.y,exColor,6);}});if(settings.vfx)spawnExplosion(player.x,player.y,exColor,20);
@@ -1744,10 +1950,20 @@ function processKill(en){
     if(db.totalCreditsEarned>=100000)checkAchievement('rich100k');
   }
   spawnExplosion(en.x,en.y,en.color,en.type==='tank'||en.type==='shielded'?15:7);shake=en.type==='tank'?10:5;
+  // Modo Historia: track sesión
+  if(!isTrainingMode){
+    if(en.type==='tank'){db.sessionRedKills=(db.sessionRedKills||0)+1;}
+    checkStoryMissions();
+  }
 }
 
 function triggerDeath(){
-  if(player.class==='juggernaut' || player.class==='tanker') return; // no instant death from collisions
+  if(player.class==='juggernaut' || player.class==='tanker') return;
+  if(player.class==='vampire'){
+    // Vampire can drain nearby enemies to survive once
+    let nearEnemies=enemies.filter(e=>!e.dead&&Math.hypot(player.x-e.x,player.y-e.y)<150);
+    if(nearEnemies.length>0){nearEnemies.slice(0,3).forEach(e=>{e.hp=0;e.dead=true;processKill(e);});player.invFrames=120;player.shieldFrames=120;spawnExplosion(player.x,player.y,'#880022',40);playSFX('nova');return;}
+  }
   if(player.class==='nova'&&player.novaRevive){
     player.novaRevive=false;playSFX('nova');spawnExplosion(player.x,player.y,'#f44',80);
     enemies.forEach(e=>{if(!e.dead&&Math.hypot(e.x-player.x,e.y-player.y)<200){e.dead=true;processKill(e);}});
@@ -1789,6 +2005,22 @@ function update(){
   }
   if(player.class==='summoner' && frameCount%180===0){
       drones.push({x:player.x, y:player.y, isAlly:true, timer:400}); playSFX('select');
+  }
+  // CLASES MELEE: efectos pasivos
+  if(player.class==='samurai' && frameCount%8===0){
+    // Samurai: daño automático a los muy cercanos (estilo melee pasivo)
+    enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<player.radius+en.radius+10){en.hp-=0.5;if(en.hp<=0){en.dead=true;processKill(en);}else{let pa=Math.atan2(en.y-player.y,en.x-player.x);en.x+=Math.cos(pa)*15;en.y+=Math.sin(pa)*15;}}});
+  }
+  if(player.class==='vampire'){
+    // Vampire: aura oscura daña a cercanos automáticamente
+    if(frameCount%10===0){enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<55){en.hp-=0.4;player.shieldFrames=Math.min((player.shieldFrames||0)+5,300);if(en.hp<=0){en.dead=true;processKill(en);}else if(settings.vfx&&frameCount%30===0)spawnExplosion(en.x,en.y,'#880022',3);}});}
+  }
+  if(player.class==='brawler'){
+    // Brawler: velocidad extra cuando hay enemigos cerca
+    let nearCount=enemies.filter(en=>!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<150).length;
+    player.speed = player.baseSpeed+(db.upgrades.speed*0.4)+(nearCount*0.5);
+    // Daño automático por contacto MUY fuerte
+    if(player.invFrames<=0)enemies.forEach(en=>{if(!en.dead&&Math.hypot(player.x-en.x,player.y-en.y)<player.radius+en.radius+5){en.hp-=1.5;let pa=Math.atan2(en.y-player.y,en.x-player.x);en.x+=Math.cos(pa)*40;en.y+=Math.sin(pa)*40;if(en.hp<=0){en.dead=true;processKill(en);}else if(settings.vfx&&frameCount%15===0)spawnExplosion(en.x,en.y,'#ff9900',5);}});
   }
 
   // Drones
@@ -1873,6 +2105,7 @@ function update(){
       if(player.class==='ghost'&&wave===5&&!ghostWave5Checked){ghostWave5Checked=true;checkAchievement('ghostwave');}
       if(db.bestWave<wave){db.bestWave=wave;saveDB();}
       bossDefeatedSession=false;
+      if(!isTrainingMode)checkStoryMissions();
     }
   }
   if(player.class==='ghost')player.ghostActive=(frameCount-player.lastFiredFrame)>60;
@@ -2019,7 +2252,7 @@ function update(){
       if(player.class==='omega'&&player.isDashingFrames>0&&ed<player.radius+en.radius+20){en.dead=true;processKill(en);return;}
       if(ed<player.radius+en.radius-4&&player.invFrames<=0&&player.shieldFrames<=0){
         if(player.class==='ghost'&&player.ghostActive)return;
-        if(player.class==='juggernaut' || player.class==='tanker')return; // immune to direct bump damage
+        if(player.class==='juggernaut' || player.class==='tanker' || player.class==='brawler')return; // immune to bump
         if((player.class==='omega'||player.class==='titan'||player.class==='aloe'||player.class==='eyal')&&player.extraLife){
           player.extraLife=false;timeStopGlobal=180;document.getElementById('time-stop-fx').classList.add('active');
           canvas.style.filter='invert(1) hue-rotate(180deg) contrast(1.5)';shake=20;spawnExplosion(player.x,player.y,'#f00',30);playSFX('explosion');
@@ -2155,11 +2388,16 @@ function draw(){
     particles.forEach(p=>{ctx.globalAlpha=p.life;ctx.fillStyle=p.color;ctx.shadowBlur=6;ctx.shadowColor=p.color;ctx.fillRect(p.x-p.size/2,p.y-p.size/2,p.size,p.size);});
     ctx.globalAlpha=1;ctx.shadowBlur=0;
     // Draw Player 2
+    if(db.multiplayerUnlocked&&!player2Active&&gameState==='PLAY'){
+      ctx.fillStyle='rgba(0,255,0,.4)';ctx.font='11px Share Tech Mono';ctx.textAlign='center';
+      ctx.fillText('[F] = UNIRSE COMO P2  |  WASD mover  |  F disparar  |  G dash  |  H autofire',canvas.width/2,canvas.height-16);ctx.textAlign='left';
+    }
     if(db.multiplayerUnlocked&&player2Active&&gameState==='PLAY'){
       ctx.save();ctx.globalAlpha=player2.invF>0?(Math.sin(Date.now()*.03)>.5?.3:1):1;
       ctx.fillStyle='#0f0';ctx.shadowBlur=15;ctx.shadowColor='#0f0';
       ctx.beginPath();ctx.moveTo(player2.x,player2.y-player2.radius);ctx.lineTo(player2.x+player2.radius,player2.y+player2.radius);ctx.lineTo(player2.x-player2.radius,player2.y+player2.radius);ctx.closePath();ctx.fill();
-      ctx.fillStyle='#fff';ctx.font='10px Share Tech Mono';ctx.textAlign='center';ctx.fillText('P2 '+'♥'.repeat(Math.max(0,player2.hp)),player2.x,player2.y-player2.radius-5);ctx.textAlign='left';
+      ctx.fillStyle='#fff';ctx.font='10px Share Tech Mono';ctx.textAlign='center';
+      ctx.fillText('P2 '+'♥'.repeat(Math.max(0,player2.hp))+(player2.autoFire?' [A]':''),player2.x,player2.y-player2.radius-5);ctx.textAlign='left';
       ctx.restore();
     }
   }
@@ -2172,18 +2410,30 @@ const p2Keys={};
 document.addEventListener('keydown',e=>{
   p2Keys[e.key]=true;
   if(!db.multiplayerUnlocked||gameState!=='PLAY')return;
-  if(!player2Active&&e.key==='f'){player2Active=true;player2.x=canvas.width/2;player2.y=canvas.height/2;player2.hp=3;}
+  if(!player2Active&&e.key==='f'){player2Active=true;player2.x=canvas.width/2+60;player2.y=canvas.height/2;player2.hp=5;playSFX('select');return;}
   if(e.key==='f'&&player2Active){
-    let pa=Math.atan2(player.y-player2.y,player.x-player2.x);
-    bullets.push({x:player2.x,y:player2.y,vx:Math.cos(pa)*20,vy:Math.sin(pa)*20,life:1,dmg:1,color:'#0f0'});
+    // P2 fires toward NEAREST ENEMY (not player)
+    const nearest=enemies.filter(en=>!en.dead).sort((a,b)=>Math.hypot(player2.x-a.x,player2.y-a.y)-Math.hypot(player2.x-b.x,player2.y-b.y))[0];
+    if(nearest){
+      let pa=Math.atan2(nearest.y-player2.y,nearest.x-player2.x);
+      bullets.push({x:player2.x,y:player2.y,vx:Math.cos(pa)*22,vy:Math.sin(pa)*22,life:1,dmg:1,color:'#0f0'});
+    } else {
+      // Si no hay enemigos, dispara hacia donde se mueve
+      let pa=Math.atan2(mouse.y-player2.y,mouse.x-player2.x);
+      bullets.push({x:player2.x,y:player2.y,vx:Math.cos(pa)*22,vy:Math.sin(pa)*22,life:1,dmg:1,color:'#0f0'});
+    }
     playSFX('shoot');
   }
   if(e.key==='g'&&player2Active&&player2.dashCD<=0){
     player2.dashCD=45;player2.invF=20;
-    let pa=Math.atan2(player.y-player2.y,player.x-player2.x);
-    player2.x+=Math.cos(pa)*80;player2.y+=Math.sin(pa)*80;
+    const nearest=enemies.filter(en=>!en.dead).sort((a,b)=>Math.hypot(player2.x-a.x,player2.y-a.y)-Math.hypot(player2.x-b.x,player2.y-b.y))[0];
+    let pa=nearest?Math.atan2(nearest.y-player2.y,nearest.x-player2.x):Math.atan2(mouse.y-player2.y,mouse.x-player2.x);
+    player2.x=Math.max(16,Math.min(canvas.width-16,player2.x+Math.cos(pa)*100));
+    player2.y=Math.max(16,Math.min(canvas.height-16,player2.y+Math.sin(pa)*100));
     playSFX('dash');
   }
+  // Auto-fire P2 toggle
+  if(e.key==='h'&&player2Active){player2.autoFire=!player2.autoFire;}
 });
 document.addEventListener('keyup',e=>{p2Keys[e.key]=false;});
 function updatePlayer2(){
@@ -2194,6 +2444,13 @@ function updatePlayer2(){
   player2.x=Math.max(player2.radius,Math.min(canvas.width-player2.radius,player2.x));
   player2.y=Math.max(player2.radius,Math.min(canvas.height-player2.radius,player2.y));
   if(player2.dashCD>0)player2.dashCD--;if(player2.invF>0)player2.invF--;
+  // P2 auto-fire toward nearest enemy
+  player2.fireT=(player2.fireT||0)+1;
+  if(player2.autoFire&&player2.fireT>=18){
+    player2.fireT=0;
+    const nearest=enemies.filter(en=>!en.dead).sort((a,b)=>Math.hypot(player2.x-a.x,player2.y-a.y)-Math.hypot(player2.x-b.x,player2.y-b.y))[0];
+    if(nearest){let pa=Math.atan2(nearest.y-player2.y,nearest.x-player2.x);bullets.push({x:player2.x,y:player2.y,vx:Math.cos(pa)*22,vy:Math.sin(pa)*22,life:1,dmg:1,color:'#0f0'});}
+  }
   // P2 collides with enemies
   if(player2.invF<=0){
     enemies.forEach(en=>{if(!en.dead&&Math.hypot(player2.x-en.x,player2.y-en.y)<player2.radius+en.radius){player2.hp--;player2.invF=60;if(player2.hp<=0){player2Active=false;playSFX('explosion');}playSFX('hit');}});
